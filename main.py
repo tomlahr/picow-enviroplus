@@ -1,12 +1,5 @@
-# TODO: nicer MQTT output as JSON
-# TODO: clean disconnect on MQTT
-# TODO: collapse PMS readings logic
-# TODO: MQTT data should be retained
-# TODO: don't keep doing MQTT connect
-# TODO: support other charts on button press
-# TODO: parameterise whether PMS is attached
-# TODO: shorten lux (reduce update flicker)
-
+# Enviro Plus Sensor Board
+# Main
 import time
 from machine import Pin, ADC, UART
 from picographics import PicoGraphics, DISPLAY_ENVIRO_PLUS
