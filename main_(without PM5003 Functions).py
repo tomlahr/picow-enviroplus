@@ -4,6 +4,7 @@
 # (commented-out programme lines)
 # Ready for use - May 2023, T.L.
 
+# setup libraries
 import time
 from machine import Pin, ADC, UART
 from picographics import PicoGraphics, DISPLAY_ENVIRO_PLUS
@@ -26,16 +27,13 @@ Also publishes results via MQTT.
 Press A and B to turn the backlight on and off
 Press X and Y to switch between sensor mode and graphic equaliser mode
 """
-
+# Initialize many Variables
 # change this to adjust temperature compensation
 TEMPERATURE_OFFSET = 5
-
 # change this to adjust screen brightness
 BRIGHTNESS = 0.8
-
 # change this to adjust pressure based on your altitude
 altitude = 8
-
 # light the LED red if the gas reading is less than 50%
 GAS_ALERT = 0.5
 
@@ -325,7 +323,7 @@ while True:
               except Exception as e:
                   print(e)
                   mqtt_success = False
-                  led.set_rgb(255, 0, 0)
+                  led.set_rgb(255, 0, 0)  #Red Alert!
 
           if mqtt_success is True:
               current_time = time.ticks_ms()
