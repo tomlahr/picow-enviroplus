@@ -223,6 +223,7 @@ max_gas = 0.0
 uasyncio.get_event_loop().run_until_complete(network_manager.client(config.wifi_ssid, config.wifi_password))
 
 # setup
+# led.set is set_rgb(RED,GREEN,BLUE), brightness controlled by values 0-255
 led.set_rgb(255, 0, 0)
 display.set_backlight(BRIGHTNESS)
 display.set_pen(RED)
