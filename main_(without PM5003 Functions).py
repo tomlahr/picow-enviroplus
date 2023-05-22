@@ -24,7 +24,8 @@ import uasyncio
 This code reads from all the sensors on Enviro+
 Displays the results on screen.
 Also publishes results via MQTT.
-Press A and B to turn the backlight on and off
+Press A to turn the backlight on and off
+Press B ... TO DO! Desired: toggle WLAN,MQTT on/off
 Press X and Y to switch between sensor mode and graphic equaliser mode
 """
 # Initialize many Variables
@@ -147,6 +148,7 @@ network_manager = NetworkManager(country=config.wifi_country, hostname=config.ni
 
 # set up the display
 display = PicoGraphics(display=DISPLAY_ENVIRO_PLUS, rotate=180)
+screen_on = False
 
 # set up the LED
 led = RGBLED(6, 7, 10, invert=True)
@@ -235,15 +237,25 @@ time.sleep(0.5)
 temperature, pressure, humidity, gas, status, _, _ = bme.read()
 time.sleep(0.5)
 
+def toggle_backlight():
+    global screen_on
+    if screen_on:
+        display.set_backlight(0)
+    else:
+        display.set_backlight(BRIGHTNESS)
+    screen_on = not screen_on
+
 while True:
   # turn off the backlight with A and turn it back on with B
   # switch between sensor and equaliser mode with X and Y
   if button_a.is_pressed:
-      display.set_backlight(BRIGHTNESS)
+      toggle_backlight()
       time.sleep(0.2)
+      """
   elif button_b.is_pressed:
       display.set_backlight(0)
       time.sleep(0.2)
+      """
   elif button_x.is_pressed:
       mode = "sensors"
       display.set_backlight(BRIGHTNESS)
