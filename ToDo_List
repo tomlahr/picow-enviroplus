@@ -5,8 +5,8 @@
 # TODO: don't keep doing MQTT connect
 # TODO: support other charts on button press
 # TODO: parameterise whether PMS is attached
-# TODO: Toggle-Function (On Off Switch) function for display,
-# to reassign the button that has become free
+# TODO: Toggle-Function (On Off Switch) function for display - DONE!
+# TODO: reassign the button that has become free
 # TODO: shorten lux (reduce update flicker) - DONE!
 New!
 # TODO: Reassign Button B to toggle WLAN/MQTT Function
